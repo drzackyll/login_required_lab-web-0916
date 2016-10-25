@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'secrets#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -53,4 +54,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  # get 'show', to:
+  get 'secrets/', to: 'sessions#new'
+  post 'secrets/', to: 'sessions#create'
+  get 'secrets/logged', to: 'secrets#show'
+  get 'secrets/secret', to: 'secrets#secret'
+  get 'secrets/logout', to: 'sessions#destroy'
 end
